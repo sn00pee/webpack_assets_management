@@ -1,4 +1,5 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = (env, argv) => {
   const devtool = argv.mode === 'development' ? 'inline-source-map' : false
@@ -15,7 +16,14 @@ module.exports = (env, argv) => {
     module: {
       rules: [],
     },
-    plugins: [new CleanWebpackPlugin()],
+    plugins: [
+      new CleanWebpackPlugin(),
+      new HtmlWebpackPlugin({
+        template: './public/index.html',
+        filename: 'index.html',
+        minify: false,
+      }),
+    ],
     stats: 'minimal',
   }
 
