@@ -11,7 +11,8 @@ module.exports = (env, argv) => {
     },
     output: {
       path: __dirname + '/dist',
-      filename: '[name].js',
+      publicPath: 'https://r10s.jp/evt/com/e/',
+      filename: 'js/[name].js',
     },
     module: {
       rules: [],
