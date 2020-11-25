@@ -1,3 +1,4 @@
+const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -42,6 +43,11 @@ module.exports = (env, argv) => {
       }),
     ],
     stats: 'minimal',
+    resolve: {
+      alias: {
+        '@assets': path.resolve(__dirname, 'src/assets')
+      }
+    }
   }
 
   return config
