@@ -15,7 +15,23 @@ module.exports = (env, argv) => {
       filename: 'js/[name].js',
     },
     module: {
-      rules: [],
+      rules: [
+        {
+          test: /\.(png|jpe?g|gif)$/i,
+          loader: 'file-loader',
+          options: {
+            outputPath: 'images/',
+            name: '[name].[ext][query]',
+          },
+        },
+        {
+          test: /\.html$/i,
+          loader: 'html-loader',
+          options: {
+            minimize: false,
+          },
+        },
+      ],
     },
     plugins: [
       new CleanWebpackPlugin(),
